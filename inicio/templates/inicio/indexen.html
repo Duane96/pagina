@@ -1,0 +1,272 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block nav %}
+<nav id="navbar" class="navbar nav-menu">
+    <ul>
+      <li><a href="{% url 'inicioes' %}" class=""><img src="{% static 'img/co.png' %}" width=40 height=40></a>
+      <li><a href="{% url 'inicioen' %}" class=""><img src="{% static 'img/en.png' %}" width=40 height=40></a>
+      <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+      <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+      <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
+      <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
+      <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+    </ul>
+  </nav><!-- .nav-menu -->
+{% endblock nav %}
+
+{% block content %}
+    <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex flex-column justify-content-center">
+    <div class="container" data-aos="zoom-in" data-aos-delay="100">
+      <h1>Duane Abreu</h1>
+      <p>I am <span class="typed" data-typed-items="Dancer, Teacher, Artist, Choreographer"></span></p>
+      <div class="social-links">
+        <a href="mailto:prfduanebogota@gmail.com" class="gmail"><i class="bx bxl-gmail"></i></a>
+        <a href="https://wa.me/573223654576" class="whatsapp"><i class="bx bxl-whatsapp"></i></a>
+        <a href="https://www.instagram.com/bachataduane/" class="instagram"><i class="bx bxl-instagram"></i></a>
+        
+      </div>
+    </div>
+  </section><!-- End Hero -->
+
+{% endblock content %}
+
+{% block content2 %}
+  <section id="about" class="about">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2>About me</h2>
+      <p>I am a professional dancer with almost 14 years of experience in the field. I am proficient in the styles of Line Salsa, Cuban Salsa, and Sensual Bachata. My passion is teaching dance, and I have spent all these years developing and learning different methodologies to implement proper teaching techniques.</p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4">
+        <img src="{% static 'img/perfil.jpg' %}" class="img-fluid" alt="">
+      </div>
+      <div class="col-lg-8 pt-4 pt-lg-0 content">
+        <h3>Professional Dancer / Instructor and Choreographer</h3>
+        <p class="fst-italic">
+            A little bit of my personal information so you can get to know me
+        </p>
+        <div class="row">
+          <div class="col-lg-6">
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>25 March</span></li>
+              <li><i class="bi bi-chevron-right"></i> <strong>Instagram:</strong> <span>@bachataduane</span></li>
+              <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+57 3223654576</span></li>
+              <li><i class="bi bi-chevron-right"></i> <strong>Country:</strong> <span>Bogotá, Colombia</span></li>
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>27</span></li>
+              <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>prfduanebogota@gmail.com</span></li>
+              <li><i class="bi bi-chevron-right"></i> <strong>Especiality:</strong> <span>Sensual Bachata</span></li>
+              <li><i class="bi bi-chevron-right"></i> <strong>Rhythms:</strong> <span>On1 Salsa, Cuban Salsa</span></li>
+            </ul>
+          </div>
+        </div>
+        <p>
+            I was born in Venezuela, in Carabobo state's Valencia. In 2018, I arrived in Bogotá with the dream of teaching my art, my dance, and everything I had learned for so many years. It was a really tough journey and there are still obstacles and complications, but I never give up. I'm still here, persevering.
+        </p>
+      </div>
+    </div>
+
+  </div>
+  </section><!-- End About Section -->
+{% endblock content2 %}
+
+{% block portafolio %}
+  <!-- ======= Portfolio Section ======= -->
+  <section id="portfolio" class="portfolio section-bg">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Portfolio</h2>
+        <p>
+            Here's some of my work. As I mentioned earlier, my specialty is Sensual Bachata. To see more, you can go to my Instagram.</p>
+      </div>
+      <table>
+        <tr>
+          {% for video in videos %}
+            <td class="video-cell">
+              <iframe width="290" height="500" src="{{ video.url }}?rel=0&showinfo=0&controls=1&Modestbranding=1"></iframe>
+
+            </td>
+            {% if forloop.counter|divisibleby:3 and not forloop.last %}
+              </tr><tr>
+            {% endif %}
+          {% endfor %}
+        </tr>
+      </table>
+
+
+      
+
+    </div>
+  </section><!-- End Portfolio Section -->
+
+{% endblock portafolio %}
+
+{% block servicios %}
+  <!-- ======= Services Section ======= -->
+  <section id="services" class="services">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Class Price</h2>
+        <p>With my classes, you can learn to dance smoothly with anyone in the world, in the comfort of your own home or at the location of your choice, at a time that's most convenient for you. Remember to ask about availability.</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+          <div class="icon-box iconbox-blue">
+            <div class="icon">
+              <img src="{% static 'img/numero-uno.png' %}" width="100" height="100">
+              
+            </div>
+            <h4><a href="">A single class</a></h4>
+            <p>$75.000 COP<br>
+              18 USD <br>
+              One class with a duration of 60 minutes</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+          <div class="icon-box iconbox-orange ">
+            <div class="icon">
+              <img src="{% static 'img/numero-5.png' %}" width="100" height="100">
+            </div>
+            <h4><a href="">Five classes</a></h4>
+            <p>$350.000 COP<br>
+              85 USD<br>
+              Five classes, each lasting 60 minutes.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+          <div class="icon-box iconbox-pink">
+            <div class="icon">
+              <img src="{% static 'img/numero-8.png' %}" width="100" height="100">
+            </div>
+            <h4><a href="">Eight classes</a></h4>
+            <p>$520.000 COP<br>
+              128 USD<br>
+            Eight Classes, each lasting 60 minutes.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+          <div class="icon-box iconbox-yellow">
+            <div class="icon">
+              <img src="{% static 'img/numero-10.png' %}" width="100" height="100">
+            </div>
+            <h4><a href="">Ten classes</a></h4>
+            <p>$600.000 COP<br>
+              150 USD<br>
+            Ten classes, each lasting 60 minutes.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
+          <div class="icon-box iconbox-red">
+            <div class="icon">
+              <img src="{% static 'img/numero-15.png' %}" width="100" height="100">
+            </div>
+            <h4><a href="">Fifteen classes</a></h4>
+            <p>$825.000 COP<br>
+              210 USD<br>
+              Fifteen classes, each lasting 60 minutes.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+          <div class="icon-box iconbox-teal">
+            <div class="icon">
+              <img src="{% static 'img/numero-20.png' %}" width="100" height="100">
+            </div>
+            <h4><a href="">Twenty classes</a></h4>
+            <p>$1.000.000 COP<br>
+              265 USD<br>
+              Twenty classes, each lasting 60 minutes.</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="section-title">
+        <h2>Specifications</h2>
+      </div>
+        <p class="especificaciones">1. The prices are the same for one (1) or two (2) persons.<br>
+        2. The packages of 5, 8, and 10 classes have an expiration time of 8 weeks.<br>
+        3. The packages of 15 and 20 classes have an expiration time of 12 weeks.<br>
+        4. Once the time of each package has ended, it will be considered concluded even if the students have not finished.<br>
+        5. The packages must be paid in advance, if you are not sure about paying for the package, pay per class since there are no refunds.<br> 
+        6. For packages of 3 people or more, price must be consulted.</p>
+      
+
+    </div>
+  </section><!-- End Services Section -->
+{% endblock servicios %}
+
+{% block contacto %}
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>For more information you can write to me or leave your details and I will contact you as soon as possible.</p>
+      </div>
+
+      <div class="row mt-1">
+
+        <div class="col-lg-4">
+          <div class="info">
+            <div class="address">
+              <i class="bi bi-geo-alt"></i>
+              <h4>Location:</h4>
+              <p>Bogotá, Colombia</p>
+            </div>
+
+            <div class="email">
+              <i class="bi bi-envelope"></i>
+              <h4>Email:</h4>
+              <p>prfduanebogota@gmail.com</p>
+            </div>
+
+            <div class="phone">
+              <i class="bi bi-phone"></i>
+              <h4>WhatsApp:</h4>
+              <p>+57 3223654576</p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-8 mt-5 mt-lg-0">
+          <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+            <div class="contacto">
+            <a href="https://wa.me/573223654576">
+              <img src="{% static 'img/whatsapp-logo.png' %}" width=100 height=100 alt="WhatsApp logo"><h2>WhatsApp</h2>
+            </a>
+          </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+            <div class="contacto">
+            <a href="https://www.instagram.com/bachataduane/">
+              <img src="{% static 'img/instagram-logo.png' %}" width=100 height=100 alt="Instagram logo">
+              <h2>Instagram</h2>
+            </a>
+          </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Contact Section -->
+{% endblock contacto %}
